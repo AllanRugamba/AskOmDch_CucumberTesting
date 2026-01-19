@@ -22,23 +22,8 @@ public class RemoveFromCartSteps {
 
     @When("I remove {string} from the cart")
     public void i_remove_from_the_cart(String productName) {
-        // Find and click remove button for the specific product
-        try {
-            // Try common remove button selectors
-            driver.findElement(By.cssSelector("a.remove")).click();
-        } catch (Exception e) {
-            try {
-                driver.findElement(By.xpath("//a[contains(@class,'remove')]")).click();
-            } catch (Exception e2) {
-                try {
-                    driver.findElement(By.linkText("×")).click();
-                } catch (Exception e3) {
-                    // Try product-specific remove button
-                    String xpath = "//td[contains(@class,'product-name')]//*[contains(text(),'" + productName + "')]/ancestor::tr//a[contains(@class,'remove')]";
-                    driver.findElement(By.xpath(xpath)).click();
-                }
-            }
-        }
+        // Use the specific CSS selector for remove button
+        driver.findElement(By.cssSelector("#post-1220 > div > div > div > div > form > table > tbody > tr.woocommerce-cart-form__cart-item.cart_item > td.product-remove > a")).click();
         
         try {
             Thread.sleep(2000);
@@ -68,7 +53,7 @@ public class RemoveFromCartSteps {
         boolean hasProduct = cartPage.isProductInCart(productName);
         Assert.assertTrue("Product not found in cart: " + productName, hasProduct);
         
-        // Check that only one product row exists
+
         int productCount = driver.findElements(By.cssSelector("tr.cart_item")).size();
         Assert.assertEquals("Cart should contain only one item", 1, productCount);
     }

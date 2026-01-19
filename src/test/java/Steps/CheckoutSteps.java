@@ -32,7 +32,7 @@ public class CheckoutSteps {
 
     @When("I click on the checkout button")
     public void i_click_on_the_checkout_button() {
-        // Use the specific CSS selector for the checkout button
+
         driver.findElement(By.cssSelector("#post-1220 > div > div > div > div > div.cart-collaterals > div > div > a")).click();
         
         try {
@@ -57,7 +57,7 @@ public class CheckoutSteps {
 
     @When("I select payment method {string}")
     public void i_select_payment_method(String paymentMethod) {
-        // Select payment method - usually radio button
+
         driver.findElement(By.id("payment_method_cod")).click();
     }
 
@@ -83,7 +83,7 @@ public class CheckoutSteps {
 
     @Then("the order total should be correct")
     public void the_order_total_should_be_correct() {
-        // Basic check - verify total amount is displayed
+
         boolean hasTotal = driver.findElements(By.cssSelector(".order-total, .woocommerce-Price-amount")).size() > 0;
         Assert.assertTrue("Order total not found", hasTotal);
     }

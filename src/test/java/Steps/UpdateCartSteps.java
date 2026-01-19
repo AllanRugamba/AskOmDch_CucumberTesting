@@ -60,7 +60,7 @@ public class UpdateCartSteps {
 
     @Then("the cart total should be updated")
     public void theCartTotalShouldBeUpdated() {
-        // Simple check - verify any total element exists
+
         Assert.assertTrue("Cart total not found", 
                 driver.findElements(By.cssSelector(".cart-subtotal, .order-total, .woocommerce-Price-amount")).size() > 0);
     }
