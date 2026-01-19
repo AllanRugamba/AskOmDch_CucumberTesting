@@ -28,14 +28,14 @@ public class HomePage {
     }
 
     public void addProductToCart(String productName) {
-        // Find the product card containing the given name
+
         String productXpath = "//h2[contains(@class,'woocommerce-loop-product__title') and normalize-space()='" 
                 + productName + "']/ancestor::li//a[contains(@class,'add_to_cart_button')]";
 
         WebElement addToCartButton = driver.findElement(By.xpath(productXpath));
         addToCartButton.click();
         
-        // Wait for the add to cart action to complete
+
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
@@ -50,23 +50,8 @@ public class HomePage {
     }
 
     public void openCart() {
-        // Try multiple ways to access cart
-        try {
-            driver.findElement(By.linkText("Cart")).click();
-        } catch (Exception e) {
-            try {
-                driver.findElement(By.partialLinkText("Cart")).click();
-            } catch (Exception e2) {
-                try {
-                    driver.findElement(By.cssSelector("a[href*='cart']")).click();
-                } catch (Exception e3) {
-                    // Navigate directly to cart URL
-                    driver.get(url + "cart/");
-                }
-            }
-        }
+        driver.findElement(By.cssSelector("#ast-site-header-cart > div.ast-site-header-cart-li.current-menu-item > a > div")).click();
         
-        // Wait for cart page to load
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {

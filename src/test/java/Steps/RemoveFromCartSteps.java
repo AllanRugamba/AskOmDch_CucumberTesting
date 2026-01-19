@@ -22,7 +22,7 @@ public class RemoveFromCartSteps {
 
     @When("I remove {string} from the cart")
     public void i_remove_from_the_cart(String productName) {
-        // Use the specific CSS selector for remove button
+
         driver.findElement(By.cssSelector("#post-1220 > div > div > div > div > form > table > tbody > tr.woocommerce-cart-form__cart-item.cart_item > td.product-remove > a")).click();
         
         try {
