@@ -12,7 +12,7 @@ import java.util.Map;
 
 public class CheckoutSteps {
     private HomePage homePage;
-    private WebDriver driver = Hooks.driver;
+    private final WebDriver driver = Hooks.driver;
 
     @Given("I am on the home page")
     public void i_am_on_the_home_page() {
@@ -54,12 +54,10 @@ public class CheckoutSteps {
         driver.findElement(By.id("billing_phone")).sendKeys(data.get("phone"));
         driver.findElement(By.id("billing_email")).sendKeys(data.get("email"));
     }
-
     @When("I select payment method {string}")
     public void i_select_payment_method(String paymentMethod) {
         driver.findElement(By.id("payment_method_cod")).click();
     }
-
     @When("I place the order")
     public void i_place_the_order() {
         driver.findElement(By.id("place_order")).click();
@@ -70,7 +68,6 @@ public class CheckoutSteps {
             Thread.currentThread().interrupt();
         }
     }
-
     @Then("I should see an order confirmation message")
     public void i_should_see_an_order_confirmation_message() {
         boolean hasConfirmation = driver.getPageSource().contains("Thank you") ||
