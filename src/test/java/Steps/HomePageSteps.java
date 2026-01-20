@@ -19,7 +19,6 @@ public class HomePageSteps {
         homePage = new HomePage(Hooks.driver);
         homePage.open();
     }
-
     @Then("The page title should contain {string}")
     public void thePageTitleShouldContain(String expectedTitle) {
         String actualTitle = homePage.getTitle();

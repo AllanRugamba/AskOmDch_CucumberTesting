@@ -7,6 +7,7 @@ Feature: Update cart quantity
     Given I am on the AskOmDch home page
     And I add the "Blue Shoes" product to the cart
 
+
   Scenario: Change quantity of Blue Shoes in the cart
     When I change the quantity of "Blue Shoes" in the cart to 2
     Then the cart should show quantity 2 for "Blue Shoes"

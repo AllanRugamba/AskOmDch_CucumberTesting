@@ -7,6 +7,7 @@ Feature: Remove item from cart
     Given I am on the home page
     And I have added "Blue Shoes" to the cart
 
+
   Scenario: Remove item from cart successfully
     When I go to the cart page
     And I remove "Blue Shoes" from the cart

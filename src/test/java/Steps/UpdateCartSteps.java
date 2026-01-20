@@ -37,8 +37,7 @@ public class UpdateCartSteps {
         homePage = new HomePage(Hooks.driver);
         homePage.openCart();
         cartPage = new CartPage(Hooks.driver);
-        
-        // Simple approach - find and update quantity input
+
         String xpath = "//input[@type='number']";
         driver.findElement(By.xpath(xpath)).clear();
         driver.findElement(By.xpath(xpath)).sendKeys(newQuantity.toString());
@@ -60,7 +59,6 @@ public class UpdateCartSteps {
 
     @Then("the cart total should be updated")
     public void theCartTotalShouldBeUpdated() {
-        // Simple check - verify any total element exists
         Assert.assertTrue("Cart total not found", 
                 driver.findElements(By.cssSelector(".cart-subtotal, .order-total, .woocommerce-Price-amount")).size() > 0);
     }

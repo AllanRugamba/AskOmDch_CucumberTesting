@@ -28,7 +28,7 @@ public class CartPage {
     }
 
     public int getProductQuantity(String productName) {
-        // Try multiple selectors for quantity in WooCommerce cart
+
         String[] xpaths = {
             "//table[contains(@class,'shop_table')]//td[contains(@class,'product-name')]//a[contains(text(),'" + productName + "')]/ancestor::tr//input[@type='number']",
             "//table[contains(@class,'cart')]//td[contains(@class,'product-name')]//a[contains(text(),'" + productName + "')]/ancestor::tr//input[contains(@class,'qty')]",
@@ -40,7 +40,7 @@ public class CartPage {
                 String quantityStr = driver.findElement(By.xpath(xpath)).getAttribute("value");
                 return Integer.parseInt(quantityStr);
             } catch (Exception e) {
-                // Try next xpath
+
             }
         }
         return 0;

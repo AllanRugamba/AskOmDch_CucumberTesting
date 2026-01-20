@@ -79,7 +79,6 @@ public class LoginSteps {
             pageSource.contains("Dashboard")) {
             userIsLoggedIn = true;
         }
-        
 
         if (!userIsLoggedIn) {
             System.out.println("Login failed - Current URL: " + currentUrl);

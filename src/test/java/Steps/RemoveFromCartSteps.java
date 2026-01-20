@@ -19,7 +19,6 @@ public class RemoveFromCartSteps {
         homePage = new HomePage(Hooks.driver);
         homePage.addProductToCart(productName);
     }
-
     @When("I remove {string} from the cart")
     public void i_remove_from_the_cart(String productName) {
 

@@ -71,7 +71,6 @@ public class RegistrationSteps {
         
         Assert.assertTrue("Registration was not successful", registrationSuccessful);
     }
-
     @Then("I should see a registration error message")
     public void iShouldSeeARegistrationErrorMessage() {
 

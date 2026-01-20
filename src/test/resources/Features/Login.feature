@@ -16,6 +16,7 @@ Feature: Login functionality
       And login with username "invalid_user@example.com" and password "wrongPassword"
       Then I should see an error message
 
+
     Scenario: Failed login with blank credentials
       When I navigate to my account page
       And login with username "" and password ""

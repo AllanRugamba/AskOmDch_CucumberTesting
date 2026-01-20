@@ -49,7 +49,7 @@ public class HomePage {
     }
 
     public void openCart() {
-        // Use the specific cart icon selector
+
         driver.findElement(By.cssSelector("#ast-site-header-cart > div.ast-site-header-cart-li.current-menu-item > a > div")).click();
         
         try {
